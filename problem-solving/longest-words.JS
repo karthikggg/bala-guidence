@@ -18,32 +18,42 @@ function getHashTags(str) {
   let long = 0;
   let resultArr = [];
   //finding largest lenght here
-  for (i = 0; i < strToArr.length - 1; i++) {
+  for (i = 0; i < strToArr.length; i++) {
     if (strToArr[i].length > long) {
       long = strToArr[i].length;
     }
   }
   //loop of every lenght
   for (d = long; d > 1; d--) {
-    //for every lenght match its exact lenth of our text array
-
-    for (i = 0; i < strToArr.length; i++) {
+    strToArr.map((m) => {
       if (resultArr.length > 2) {
-        console.log(resultArr);
         return;
       }
-      //condition for our length match
-
-      if (strToArr[i].length == d) {
-        //pushing the elemtnt in new result array
-        resultArr.push(`#${strToArr[i]}`);
+      if (m.length == d) {
+        resultArr.push(`#${m}`);
       }
-    }
+    });
   }
-
-  console.log(resultArr);
+  return resultArr;
 }
-getHashTags("How the Avocado Became the Fruit of the Global Trade");
-getHashTags("Why You Will Probably Pay More for Your Christmas Tree This Year");
-getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit");
-getHashTags("Visualizing Science");
+console.log(
+  getHashTags("How the Avocado Became the Fruit of the Global Trade")
+);
+
+console.log(
+  getHashTags(
+    "Why You Will Probably Pay More for Your Christmas Tree This Year"
+  )
+);
+
+console.log(getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit"));
+
+console.log(getHashTags("Visualizing Science"));
+
+// [ '#Avocado', '#Became', '#Global' ]
+
+// [ '#Christmas', '#Probably', '#Will' ]
+
+// [ '#Surprise,', '#Parents,', '#Fruit' ]
+
+// [ '#Visualizing', '#Science' ]
