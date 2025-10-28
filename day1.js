@@ -369,9 +369,9 @@ outer: for (let i = 0; i < 3; i++) {
     let obj = {x: 10, y: 20};
 
 // Bad practice
-with (obj) {
-    console.log(x + y); // 30
-}
+// with (obj) {
+//     console.log(x + y); // 30
+// }
 
 // Good practice instead
 console.log(obj.x + obj.y);
